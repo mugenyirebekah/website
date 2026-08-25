@@ -8,7 +8,33 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavToggle();
   initMarquees();
   initProjectFilters();
+  initThemeToggle();
 });
+
+// ---- Dark / light mode toggle ----
+// The initial theme (from localStorage, falling back to the OS
+// preference) is already applied to <html data-theme="..."> by an
+// inline script in <head>, before first paint, to avoid a flash.
+// This just wires up the button to flip it afterwards.
+function initThemeToggle() {
+  const btn = document.querySelector('.theme-toggle');
+  if (!btn) return;
+
+  const setLabel = (theme) => {
+    btn.textContent = theme === 'dark' ? '☀' : '☾';
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  };
+
+  setLabel(document.documentElement.getAttribute('data-theme') || 'light');
+
+  btn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    setLabel(next);
+  });
+}
 
 // ---- Mobile nav toggle ----
 function initNavToggle() {

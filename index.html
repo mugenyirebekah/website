@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+  // Applied before first paint so there's no flash of the wrong theme.
+  (function () {
+    var stored = localStorage.getItem('theme');
+    var theme = stored || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home — Rebekah Mugenyi</title>
 <meta name="description" content="Portfolio of Rebekah Mugenyi — electronics & robotics engineering student.">
@@ -19,7 +27,10 @@
     <a href="press.html">Press</a>
     <a href="about.html">About</a>
   </nav>
-  <button class="nav-toggle" aria-label="Toggle menu">≡</button>
+  <div class="header-controls">
+    <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+    <button class="nav-toggle" aria-label="Toggle menu">≡</button>
+  </div>
 </header>
 <main class="wrap">
   <section class="hero">
@@ -27,7 +38,10 @@
   </section>
 
   <section class="work">
-    <p class="work-heading">// My work</p>
+    <div class="marquee-caption" style="margin-bottom:24px;">
+      <p class="work-heading" style="margin:0;">// My work</p>
+      <a class="see-project" href="projects.html">See all projects &rarr;</a>
+    </div>
   <div class="marquee-row">
     <div class="marquee-caption">
       <span class="proj-name">Hexapod</span>
@@ -59,61 +73,6 @@
     <div class="marquee-viewport">
       <div class="marquee-track">
         <img src="images/projects/boost-converter-1.svg" alt="Boost Converter project photo" loading="lazy"><img src="images/projects/boost-converter-2.svg" alt="Boost Converter project photo" loading="lazy"><img src="images/projects/boost-converter-3.svg" alt="Boost Converter project photo" loading="lazy">
-      </div>
-    </div>
-  </div>  <div class="marquee-row">
-    <div class="marquee-caption">
-      <span class="proj-name">Titan Energy</span>
-      <span class="proj-desc">Brand identity & 3D product visualisation</span>
-      <a class="see-project" href="projects/titan-energy.html">See Project &rarr;</a>
-    </div>
-    <div class="marquee-viewport">
-      <div class="marquee-track">
-        <img src="images/projects/titan-energy.svg" alt="Titan Energy project photo" loading="lazy">
-      </div>
-    </div>
-  </div>  <div class="marquee-row">
-    <div class="marquee-caption">
-      <span class="proj-name">Sydney James</span>
-      <span class="proj-desc">Sports brand visual project</span>
-      <a class="see-project" href="projects/sydney-james.html">See Project &rarr;</a>
-    </div>
-    <div class="marquee-viewport">
-      <div class="marquee-track">
-        <img src="images/projects/sydney-james.svg" alt="Sydney James project photo" loading="lazy">
-      </div>
-    </div>
-  </div>  <div class="marquee-row">
-    <div class="marquee-caption">
-      <span class="proj-name">Range Crazy</span>
-      <span class="proj-desc">Brand visual project</span>
-      <a class="see-project" href="projects/range-crazy.html">See Project &rarr;</a>
-    </div>
-    <div class="marquee-viewport">
-      <div class="marquee-track">
-        <img src="images/projects/range-crazy.svg" alt="Range Crazy project photo" loading="lazy">
-      </div>
-    </div>
-  </div>  <div class="marquee-row">
-    <div class="marquee-caption">
-      <span class="proj-name">Uéloce</span>
-      <span class="proj-desc">Brand visual project</span>
-      <a class="see-project" href="projects/ueloce.html">See Project &rarr;</a>
-    </div>
-    <div class="marquee-viewport">
-      <div class="marquee-track">
-        <img src="images/projects/ueloce.svg" alt="Uéloce project photo" loading="lazy">
-      </div>
-    </div>
-  </div>  <div class="marquee-row">
-    <div class="marquee-caption">
-      <span class="proj-name">Madame FC</span>
-      <span class="proj-desc">Club brand visual project</span>
-      <a class="see-project" href="projects/madame-fc.html">See Project &rarr;</a>
-    </div>
-    <div class="marquee-viewport">
-      <div class="marquee-track">
-        <img src="images/projects/madame-fc.svg" alt="Madame FC project photo" loading="lazy">
       </div>
     </div>
   </div>
