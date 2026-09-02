@@ -354,6 +354,7 @@ a { color: inherit; text-decoration: none; }
 .project-card .thumb .placeholder-tile {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .project-card .see-project {
@@ -472,7 +473,7 @@ a { color: inherit; text-decoration: none; }
   margin: 8px 0 32px;
 }
 
-.detail-hero img, .detail-hero .placeholder-tile { width: 100%; height: 100%; }
+.detail-hero img, .detail-hero .placeholder-tile { width: 100%; height: 100%; object-fit: cover; }
 
 .detail-meta {
   display: flex;
@@ -500,6 +501,7 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   aspect-ratio: 4 / 3;
   border-radius: 6px;
+  object-fit: cover;
 }
 
 .back-link {
@@ -649,4 +651,16 @@ a { color: inherit; text-decoration: none; }
   .project-grid { grid-template-columns: 1fr 1fr; }
   .marquee-track img, .marquee-track .placeholder-tile { width: 220px; height: 160px; }
   .footer-cta, .footer-contact { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  .marquee-caption {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+  .marquee-caption .proj-name { order: 1; }
+  .marquee-caption .see-project { order: 2; margin-left: auto; }
+  .marquee-caption .proj-desc {
+    order: 3;
+    flex: 0 0 100%;
+    width: 100%;
+  }
 }
