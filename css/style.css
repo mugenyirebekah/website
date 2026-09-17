@@ -3,7 +3,7 @@
    Monochrome chrome, image-driven color, code-styled type.
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&family=Bangers&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 :root {
   --ink: #111111;
@@ -515,10 +515,18 @@ a { color: inherit; text-decoration: none; }
 
 .back-link:hover { color: var(--ink); border-color: var(--ink); }
 
-/* ---------- Sidequests (comic-book "coming soon") ---------- */
+/* ---------- Sidequests (comic-book "coming soon" that peels away) ---------- */
+
+.sidequest-stage {
+  position: relative;
+  min-height: 60vh;
+  margin: 16px 0 48px;
+}
 
 .comic-page {
-  min-height: 60vh;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -529,13 +537,23 @@ a { color: inherit; text-decoration: none; }
   background-color: #ffe14d;
   border: 6px solid var(--ink);
   border-radius: 10px;
-  margin: 16px 0 48px;
-  position: relative;
   overflow: hidden;
+  transform-origin: top right;
+  transition: transform 0.7s cubic-bezier(.36,.07,.19,.97), opacity 0.55s ease 0.12s;
 }
 
 [data-theme="dark"] .comic-page {
   background-color: #3a2f00;
+}
+
+.comic-page.peeling {
+  transform: rotate(28deg) translate(55%, -35%) scale(0.82);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.comic-page.peeled-hidden {
+  display: none;
 }
 
 .comic-burst {
@@ -558,6 +576,225 @@ a { color: inherit; text-decoration: none; }
   transform: rotate(2deg);
   margin-top: 12px;
   letter-spacing: 0.02em;
+}
+
+/* Peeling corner affordance, top right of the poster */
+
+.peel-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 78px;
+  height: 78px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.peel-corner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 46px 46px 0;
+  border-color: transparent #fff5c2 transparent transparent;
+  filter: drop-shadow(-3px 3px 4px rgba(0,0,0,0.35));
+  transition: border-width 0.2s ease;
+}
+
+[data-theme="dark"] .peel-corner::before {
+  border-color: transparent #6b5600 transparent transparent;
+}
+
+.peel-corner:hover::before,
+.peel-corner:focus-visible::before {
+  border-width: 0 58px 58px 0;
+}
+
+.peel-arrow {
+  position: absolute;
+  top: -34px;
+  right: 24px;
+  z-index: 3;
+  pointer-events: none;
+  color: var(--ink);
+  animation: arrow-bob 1.3s ease-in-out infinite;
+}
+
+.peel-arrow svg { display: block; }
+
+@keyframes arrow-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(9px); }
+}
+
+/* Construction-site reveal, sits behind the poster */
+
+.construction-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  background: var(--chip);
+  border: 6px dashed #ffcc00;
+  border-radius: 10px;
+  padding: 60px 24px;
+  overflow: hidden;
+}
+
+.construction-tape {
+  position: absolute;
+  left: -24px;
+  right: -24px;
+  height: 32px;
+  background: repeating-linear-gradient(135deg, #111 0 18px, #ffcc00 18px 36px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.construction-tape.top { top: 24px; transform: rotate(-2deg); }
+.construction-tape.bottom { bottom: 24px; transform: rotate(2deg); }
+
+.construction-label {
+  font-family: var(--font-code);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111;
+  background: #ffcc00;
+  padding: 7px 16px;
+  border: 2px solid #111;
+  transform: rotate(-1deg);
+}
+
+.construction-cone { width: 56px; height: 70px; }
+
+.blog-cta {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 16px 36px;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  text-decoration: none;
+  border: 3px solid #ffcc00;
+  transition: transform 0.15s ease;
+}
+
+.blog-cta:hover { transform: translateY(-2px); }
+
+.blog-cta-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--paper);
+  opacity: 0.75;
+}
+
+@media (max-width: 640px) {
+  .sidequest-stage { min-height: 68vh; }
+  .comic-burst { -webkit-text-stroke: 2px #111; }
+}
+
+/* ---------- Blog ("Sidequests" — Medium-style reading layout) ---------- */
+
+.blog-hero { padding: 8px 0 12px; }
+
+.blog-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(34px, 5.5vw, 52px);
+  margin: 0 0 8px;
+}
+
+.blog-subtitle { font-size: 15px; color: var(--ink-soft); max-width: 480px; margin: 0; }
+
+.blog-list { display: flex; flex-direction: column; margin-top: 24px; }
+
+.blog-card {
+  display: flex;
+  gap: 20px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+  align-items: flex-start;
+}
+
+.blog-card:last-child { border-bottom: 1px solid var(--line); }
+
+.blog-card .cover {
+  width: 160px;
+  height: 110px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.blog-card .cover img { width: 100%; height: 100%; object-fit: cover; }
+
+.blog-card .card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+  margin: 0 0 6px;
+}
+
+.blog-card .card-excerpt { font-size: 14px; color: var(--ink-soft); margin: 0 0 8px; max-width: 520px; }
+
+.blog-card .card-meta { font-family: var(--font-code); font-size: 11px; color: var(--ink-soft); text-transform: uppercase; }
+
+/* Post reading view */
+
+.post-meta {
+  font-family: var(--font-code);
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin: 0 0 28px;
+}
+
+.post-cover {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+
+.post-cover img { width: 100%; height: 100%; object-fit: cover; }
+
+.post-body {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  line-height: 1.75;
+  max-width: 680px;
+  color: var(--ink);
+}
+
+.post-body p { margin: 0 0 26px; }
+
+.post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 48px; }
+
+.post-tag {
+  font-family: var(--font-code);
+  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--chip);
+  color: var(--ink-soft);
 }
 
 /* ---------- Footer ---------- */

@@ -42,10 +42,35 @@
     </div>
   </section>
 
-  <div class="comic-page">
-    <div>
-      <span class="comic-burst">COMING SOON!</span>
-      <span class="comic-sub">check back later...</span>
+  <div class="sidequest-stage">
+    <div class="construction-panel">
+      <div class="construction-tape top"></div>
+      <svg class="construction-cone" viewBox="0 0 64 80" aria-hidden="true">
+        <polygon points="32,4 47,64 17,64" fill="#ff7a1a"/>
+        <rect x="13" y="56" width="38" height="11" fill="#ff7a1a"/>
+        <rect x="6" y="67" width="52" height="10" rx="2" fill="#111"/>
+        <polygon points="25,32 39,32 42,43 22,43" fill="#fff"/>
+        <polygon points="20,45 44,45 47,56 17,56" fill="#fff"/>
+      </svg>
+      <p class="construction-label">Under construction</p>
+      <a class="blog-cta" href="blog/index.html">
+        <span>Blogs</span>
+        <span class="blog-cta-sub">Sidequest write-ups, in progress</span>
+      </a>
+      <div class="construction-tape bottom"></div>
+    </div>
+
+    <div class="comic-page" id="comicPoster">
+      <div>
+        <span class="comic-burst">COMING SOON!</span>
+        <span class="comic-sub">check back later...</span>
+      </div>
+      <button class="peel-corner" id="peelCorner" aria-label="Peel back the poster to see what's underneath"></button>
+      <span class="peel-arrow" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 9l7 7 7-7"/>
+        </svg>
+      </span>
     </div>
   </div>
 

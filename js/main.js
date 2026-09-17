@@ -9,7 +9,38 @@ document.addEventListener('DOMContentLoaded', () => {
   initMarquees();
   initProjectFilters();
   initThemeToggle();
+  initSidequestPeel();
 });
+
+// ---- Sidequests poster: peel corner reveals the construction panel ----
+function initSidequestPeel() {
+  const poster = document.getElementById('comicPoster');
+  const corner = document.getElementById('peelCorner');
+  if (!poster || !corner) return;
+
+  const STORAGE_KEY = 'sidequestsPeeled';
+
+  // Already peeled on a previous visit — show the revealed state
+  // immediately, no poster, no animation.
+  if (localStorage.getItem(STORAGE_KEY) === 'true') {
+    poster.classList.add('peeled-hidden');
+    return;
+  }
+
+  corner.addEventListener('click', () => {
+    if (poster.classList.contains('peeling')) return;
+
+    poster.classList.add('peeling');
+    localStorage.setItem(STORAGE_KEY, 'true');
+
+    const onEnd = (e) => {
+      if (e.propertyName !== 'transform') return;
+      poster.classList.add('peeled-hidden');
+      poster.removeEventListener('transitionend', onEnd);
+    };
+    poster.addEventListener('transitionend', onEnd);
+  });
+}
 
 // ---- Dark / light mode toggle ----
 // The initial theme (from localStorage, falling back to the OS
