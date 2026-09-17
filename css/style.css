@@ -688,7 +688,10 @@ a { color: inherit; text-decoration: none; }
 
 .construction-decor.cone-sm { width: 32px; height: 40px; bottom: 20px; left: 20px; transform: rotate(-9deg); }
 .construction-decor.cone-sm-2 { width: 26px; height: 33px; top: 66px; right: 22px; transform: rotate(7deg); }
-.construction-decor.hazard-triangle { width: 34px; height: 34px; top: 66px; left: 24px; transform: rotate(-4deg); }
+.construction-decor.cone-sm-3 { width: 30px; height: 38px; top: 66px; left: 24px; transform: rotate(10deg); }
+.construction-decor.cone-sm-4 { width: 28px; height: 35px; bottom: 22px; left: 40%; transform: rotate(-6deg); }
+.construction-decor.hazard-triangle { width: 34px; height: 34px; top: 108px; left: 22px; transform: rotate(-4deg); }
+.construction-decor.vehicle { width: 92px; height: auto; bottom: 18px; left: 58%; }
 
 /* Blogs — a plain card, deliberately NOT construction-themed */
 
@@ -733,28 +736,32 @@ a { color: inherit; text-decoration: none; }
 .rabbit-hole-teaser {
   position: absolute;
   z-index: 2;
-  bottom: 26px;
-  right: 7%;
+  bottom: 20px;
+  right: 4%;
   display: block;
   transform: rotate(-5deg);
   transition: transform 0.15s ease;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.3));
 }
 
-.rabbit-hole-teaser:hover { transform: rotate(-5deg) translateY(-3px); }
+.rabbit-hole-teaser:hover { transform: rotate(-5deg) translateY(-4px) scale(1.03); }
 
-.rabbit-hole-graphic { width: 150px; height: auto; display: block; }
+.rabbit-hole-graphic { width: 215px; height: auto; display: block; }
 
 @media (max-width: 640px) {
-  .sidequest-stage { min-height: 74vh; }
+  .sidequest-stage { min-height: 78vh; }
   .comic-burst { -webkit-text-stroke: 2px #111; }
   .construction-decor.cone-sm-2,
-  .construction-decor.hazard-triangle { display: none; }
+  .construction-decor.cone-sm-3,
+  .construction-decor.cone-sm-4,
+  .construction-decor.hazard-triangle,
+  .construction-decor.vehicle { display: none; }
   .rabbit-hole-teaser {
     position: static;
     margin-top: 4px;
     transform: rotate(-3deg);
   }
-  .rabbit-hole-graphic { width: 130px; margin: 0 auto; }
+  .rabbit-hole-graphic { width: 170px; margin: 0 auto; }
 }
 
 /* ---------- Blog ("Sidequests" — Medium-style reading layout) ---------- */
