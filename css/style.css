@@ -3,7 +3,7 @@
    Monochrome chrome, image-driven color, code-styled type.
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&family=Bangers&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&family=Bangers&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Patrick+Hand&display=swap');
 
 :root {
   --ink: #111111;
@@ -643,7 +643,7 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
   text-align: center;
   background: var(--chip);
   border: 6px dashed #ffcc00;
@@ -678,36 +678,83 @@ a { color: inherit; text-decoration: none; }
 
 .construction-cone { width: 56px; height: 70px; }
 
-.blog-cta {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  background: var(--ink);
-  color: var(--paper);
-  padding: 16px 36px;
-  border-radius: 6px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 22px;
-  text-decoration: none;
-  border: 3px solid #ffcc00;
-  transition: transform 0.15s ease;
+/* Extra scattered decor — kept small so the panel doesn't get busy */
+
+.construction-decor {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.95;
 }
 
-.blog-cta:hover { transform: translateY(-2px); }
+.construction-decor.cone-sm { width: 32px; height: 40px; bottom: 20px; left: 20px; transform: rotate(-9deg); }
+.construction-decor.cone-sm-2 { width: 26px; height: 33px; top: 66px; right: 22px; transform: rotate(7deg); }
+.construction-decor.hazard-triangle { width: 34px; height: 34px; top: 66px; left: 24px; transform: rotate(-4deg); }
+
+/* Blogs — a plain card, deliberately NOT construction-themed */
+
+.blog-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 14px 26px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  z-index: 2;
+}
+
+.blog-cta:hover { transform: translateY(-2px); border-color: var(--ink); }
+
+.blog-cta svg { flex-shrink: 0; }
+
+.blog-cta-text { text-align: left; }
+
+.blog-cta-text .title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+}
 
 .blog-cta-sub {
+  display: block;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 12px;
-  color: var(--paper);
-  opacity: 0.75;
+  color: var(--ink-soft);
 }
 
+/* The Rabbit Hole teaser — tucked in a corner of the same revealed area */
+
+.rabbit-hole-teaser {
+  position: absolute;
+  z-index: 2;
+  bottom: 26px;
+  right: 7%;
+  display: block;
+  transform: rotate(-5deg);
+  transition: transform 0.15s ease;
+}
+
+.rabbit-hole-teaser:hover { transform: rotate(-5deg) translateY(-3px); }
+
+.rabbit-hole-graphic { width: 150px; height: auto; display: block; }
+
 @media (max-width: 640px) {
-  .sidequest-stage { min-height: 68vh; }
+  .sidequest-stage { min-height: 74vh; }
   .comic-burst { -webkit-text-stroke: 2px #111; }
+  .construction-decor.cone-sm-2,
+  .construction-decor.hazard-triangle { display: none; }
+  .rabbit-hole-teaser {
+    position: static;
+    margin-top: 4px;
+    transform: rotate(-3deg);
+  }
+  .rabbit-hole-graphic { width: 130px; margin: 0 auto; }
 }
 
 /* ---------- Blog ("Sidequests" — Medium-style reading layout) ---------- */
@@ -795,6 +842,135 @@ a { color: inherit; text-decoration: none; }
   border-radius: 999px;
   background: var(--chip);
   color: var(--ink-soft);
+}
+
+/* ---------- The Rabbit Hole (tunnel scroll page) ---------- */
+
+.tunnel {
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    #c98a4b 0%,
+    #a5703c 8%,
+    #7a4a22 22%,
+    #5a3d22 40%,
+    #3a2812 60%,
+    #201509 80%,
+    #0b0704 100%
+  );
+  border-radius: 10px;
+  margin: 16px 0 0;
+  padding: 60px 20px 100px;
+  overflow: hidden;
+}
+
+.tunnel-intro {
+  text-align: center;
+  max-width: 440px;
+  margin: 0 auto 60px;
+  font-family: var(--font-code);
+  font-size: 13px;
+  color: #f3e6d0;
+}
+
+.tunnel-track {
+  position: absolute;
+  top: 160px;
+  bottom: 140px;
+  left: 50%;
+  width: 0;
+  border-left: 3px dashed rgba(243, 230, 208, 0.4);
+}
+
+.tunnel-path { position: relative; display: flex; flex-direction: column; gap: 90px; }
+
+.tunnel-stop {
+  position: relative;
+  width: 46%;
+  background: #f3e6d0;
+  border: 2px solid #6b4423;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tunnel-stop.in-view { opacity: 1; transform: translateY(0); }
+
+.tunnel-stop.left { align-self: flex-start; margin-left: 2%; }
+.tunnel-stop.right { align-self: flex-end; margin-right: 2%; }
+
+.tunnel-stop::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f3e6d0;
+  border: 2px solid #6b4423;
+}
+
+.tunnel-stop.left::after { right: -34px; transform: translateY(-50%); }
+.tunnel-stop.right::after { left: -34px; transform: translateY(-50%); }
+
+.tunnel-stop-label {
+  font-family: var(--font-code);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #8a5a2e;
+  margin: 0 0 6px;
+}
+
+.tunnel-stop img.cover {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.tunnel-stop h3 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 22px;
+  margin: 0 0 6px;
+  color: #2e2015;
+}
+
+.tunnel-stop p {
+  font-size: 14px;
+  color: #4a3520;
+  margin: 0 0 10px;
+}
+
+.tunnel-stop a.dig-link {
+  font-family: var(--font-code);
+  font-size: 12px;
+  color: #6b4423;
+  border-bottom: 1px solid #6b4423;
+}
+
+.tunnel-end {
+  text-align: center;
+  max-width: 360px;
+  margin: 100px auto 0;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 22px;
+  color: #f3e6d0;
+}
+
+.tunnel-end .back-link {
+  color: #f3e6d0;
+  margin-top: 14px;
+  display: inline-block;
+}
+
+@media (max-width: 640px) {
+  .tunnel-track { left: 24px; }
+  .tunnel-stop.left, .tunnel-stop.right { width: calc(100% - 56px); margin-left: 56px; margin-right: 0; align-self: flex-start; }
+  .tunnel-stop.left::after, .tunnel-stop.right::after { left: -34px; right: auto; }
 }
 
 /* ---------- Footer ---------- */

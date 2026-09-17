@@ -10,7 +10,30 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFilters();
   initThemeToggle();
   initSidequestPeel();
+  initTunnelReveal();
 });
+
+// ---- Rabbit hole: fade/slide each stop in as it scrolls into view ----
+function initTunnelReveal() {
+  const stops = document.querySelectorAll('.tunnel-stop');
+  if (!stops.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    stops.forEach((el) => el.classList.add('in-view'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  stops.forEach((el) => observer.observe(el));
+}
 
 // ---- Sidequests poster: peel corner reveals the construction panel ----
 function initSidequestPeel() {

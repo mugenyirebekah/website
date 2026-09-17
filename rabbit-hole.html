@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+  // Applied before first paint so there's no flash of the wrong theme.
+  (function () {
+    var stored = localStorage.getItem('theme');
+    var theme = stored || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rabbit Hole — Rebekah Mugenyi</title>
+<meta name="description" content="Down the rabbit hole — a few things worth digging up.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a href="index.html" class="logo-marks" aria-label="Home">
+    <img src="images/icons/logo-mark-1.svg" alt="">
+    <img src="images/icons/logo-mark-2.svg" alt="">
+  </a>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="press.html">Press</a>
+    <a href="about.html">About</a>
+  </nav>
+  <div class="header-controls">
+    <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+    <button class="nav-toggle" aria-label="Toggle menu">≡</button>
+  </div>
+</header>
+<main class="wrap">
+  <a class="back-link" href="sidequests.html">&larr; Back to Sidequests</a>
+
+  <section class="hero" style="border-bottom:none;margin-bottom:0;">
+    <h1 class="page-title">The Rabbit Hole</h1>
+    <p class="page-intro-text">A few things I think are cool. Keep scrolling — it goes deeper.</p>
+  </section>
+
+  <div class="tunnel">
+    <p class="tunnel-intro">🐇 you've fallen in. there's no rush — just keep scrolling.</p>
+
+    <div class="tunnel-track"></div>
+
+    <div class="tunnel-path">
+      <div class="tunnel-stop left">
+        <p class="tunnel-stop-label">a few inches down</p>
+        <img class="cover" src="images/rabbit-hole/stop-1.svg" alt="">
+        <h3>A cool thing #1</h3>
+        <p>Say a few words about why this is cool — could be a project, a video, an idea, anything.</p>
+        <a class="dig-link" href="#">visit &rarr;</a>
+      </div>
+
+      <div class="tunnel-stop right">
+        <p class="tunnel-stop-label">knee deep</p>
+        <img class="cover" src="images/rabbit-hole/stop-2.svg" alt="">
+        <h3>A cool thing #2</h3>
+        <p>Say a few words about why this is cool — could be a project, a video, an idea, anything.</p>
+        <a class="dig-link" href="#">visit &rarr;</a>
+      </div>
+
+      <div class="tunnel-stop left">
+        <p class="tunnel-stop-label">waist deep</p>
+        <img class="cover" src="images/rabbit-hole/stop-3.svg" alt="">
+        <h3>A cool thing #3</h3>
+        <p>Say a few words about why this is cool — could be a project, a video, an idea, anything.</p>
+        <a class="dig-link" href="#">visit &rarr;</a>
+      </div>
+
+      <div class="tunnel-stop right">
+        <p class="tunnel-stop-label">over your head</p>
+        <img class="cover" src="images/rabbit-hole/stop-4.svg" alt="">
+        <h3>A cool thing #4</h3>
+        <p>Say a few words about why this is cool — could be a project, a video, an idea, anything.</p>
+        <a class="dig-link" href="#">visit &rarr;</a>
+      </div>
+
+      <div class="tunnel-stop left">
+        <p class="tunnel-stop-label">dark enough now</p>
+        <img class="cover" src="images/rabbit-hole/stop-5.svg" alt="">
+        <h3>A cool thing #5</h3>
+        <p>Say a few words about why this is cool — could be a project, a video, an idea, anything.</p>
+        <a class="dig-link" href="#">visit &rarr;</a>
+      </div>
+
+      <div class="tunnel-stop right">
+        <p class="tunnel-stop-label">you probably shouldn't be here</p>
+        <img class="cover" src="images/rabbit-hole/stop-6.svg" alt="">
+        <h3>A cool thing #6</h3>
+        <p>Say a few words about why this is cool — could be a project, a video, an idea, anything.</p>
+        <a class="dig-link" href="#">visit &rarr;</a>
+      </div>
+    </div>
+
+    <p class="tunnel-end">...that's the bottom, for now.<br>
+      <a class="back-link" href="sidequests.html">&larr; climb back out</a>
+    </p>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-cta">Let's work on something!</div>
+  <div class="footer-contact">
+    <div>
+      <p class="contact-label">Contact</p>
+      <a class="contact-email" href="mailto:rebekahmish16@gmail.com">rebekahmish16@gmail.com</a>
+    </div>
+    <div class="footer-icons">
+      <a href="https://github.com/mugenyirebekah" target="_blank" rel="noopener" aria-label="GitHub"><img src="images/icons/github.svg" alt=""></a>
+      <a href="https://www.linkedin.com/in/rebekah-mugenyi-0a7503325" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="images/icons/linkedin.svg" alt=""></a>
+      <a href="mailto:rebekahmish16@gmail.com" aria-label="Email"><img src="images/icons/email.svg" alt=""></a>
+      <a href="files/Rebekah_Mugenyi_CV_2026.pdf" target="_blank" rel="noopener" aria-label="Resume / CV"><img src="images/icons/resume.svg" alt=""></a>
+    </div>
+  </div>
+  <div class="signature">RM</div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
