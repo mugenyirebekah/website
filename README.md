@@ -19,3 +19,12 @@ posts; `blog/sidequest-01-blue-leds.html` is a placeholder first post (real
 paragraphs, not lorem ipsum — swap in your own). To add a new post, copy
 that file, edit the title/body/tags, and add a matching `<a class="blog-card">`
 entry in `blog/index.html`. All blog links use normal same-tab navigation.
+
+
+### The Rabbit Hole Rankings
+
+1. Cool 🙂
+2. Very Cool 😎
+3. Freezing! 🥶
+4. Blizzard ❄️
+5. Absolute Zero 🧊 
