@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initSidequestPeel();
   initTunnelReveal();
+  initStickerTaps();
+  initStickerDownloadAll();
 });
 
 // ---- Rabbit hole: fade/slide each stop in as it scrolls into view ----
@@ -143,5 +145,58 @@ function initProjectFilters() {
         card.hidden = !tags.includes(tag);
       });
     });
+  });
+}
+
+// ---- Stickerville: tap-to-show explainer on touch devices ----
+function initStickerTaps() {
+  const stickers = document.querySelectorAll('.sticker');
+  if (!stickers.length) return;
+
+  document.addEventListener('click', (e) => {
+    const sticker = e.target.closest('.sticker');
+    stickers.forEach((s) => {
+      if (s !== sticker) s.classList.remove('show-explainer');
+    });
+    if (sticker && !e.target.closest('.sticker-download')) {
+      sticker.classList.toggle('show-explainer');
+    }
+  });
+}
+
+// ---- Stickerville: zip every sticker client-side and download it ----
+function initStickerDownloadAll() {
+  const btn = document.getElementById('downloadAllBtn');
+  if (!btn) return;
+
+  btn.addEventListener('click', async () => {
+    if (typeof JSZip === 'undefined') return;
+    const links = document.querySelectorAll('[data-sticker-file]');
+    const zip = new JSZip();
+    btn.disabled = true;
+    const originalText = btn.textContent;
+    btn.textContent = 'Zipping...';
+
+    await Promise.all(Array.from(links).map(async (link) => {
+      const url = link.getAttribute('href');
+      const filename = url.split('/').pop();
+      try {
+        const resp = await fetch(url);
+        const blob = await resp.blob();
+        zip.file(filename, blob);
+      } catch (err) {
+        console.error('Could not add', url, err);
+      }
+    }));
+
+    const content = await zip.generateAsync({ type: 'blob' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(content);
+    a.download = 'stickerville-stickers.zip';
+    a.click();
+    URL.revokeObjectURL(a.href);
+
+    btn.disabled = false;
+    btn.textContent = originalText;
   });
 }

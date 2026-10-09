@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+  // Applied before first paint so there's no flash of the wrong theme.
+  (function () {
+    var stored = localStorage.getItem('theme');
+    var theme = stored || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stickerville — Rebekah Mugenyi</title>
+<meta name="description" content="Stickers I've invented, scattered around for you to look at and take.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a href="index.html" class="logo-marks" aria-label="Home">
+    <img src="images/icons/logo-mark-1.svg" alt="">
+    <img src="images/icons/logo-mark-2.svg" alt="">
+  </a>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="press.html">Press</a>
+    <a href="about.html">About</a>
+  </nav>
+  <div class="header-controls">
+    <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+    <button class="nav-toggle" aria-label="Toggle menu">≡</button>
+  </div>
+</header>
+<main class="wrap">
+  <a class="back-link" href="sidequests.html">&larr; Back to Sidequests</a>
+
+  <section class="hero" style="border-bottom:none;margin-bottom:0;">
+    <h1 class="page-title">Stickerville</h1>
+    <p class="page-intro-text">Stickers I've invented. Hover one (or tap it on your phone) for the story. Grab whichever you like.</p>
+  </section>
+
+  <button class="download-all-btn" id="downloadAllBtn" type="button">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <path d="M7 10l5 5 5-5"/>
+      <path d="M12 15V3"/>
+    </svg>
+    Download all stickers
+  </button>
+
+  <div class="sticker-sheet" id="stickerSheet">
+
+    <div class="sticker tilt-a nudge-up">
+      <div class="sticker-art">
+        <img src="images/stickers/DAC.png" alt="Sticker 1">
+        <div class="sticker-explainer">DAC (Digital to analog conversion)...Duck....</div>
+      </div>
+      <div class="sticker-meta">
+        <span class="sticker-name">Sticker 1</span>
+        <a class="sticker-download" href="images/stickers/sticker-1.svg" download data-sticker-file aria-label="Download Sticker 1">⬇</a>
+      </div>
+    </div>
+
+    <div class="sticker tilt-d nudge-down">
+      <div class="sticker-art">
+        <img src="images/stickers/clock it.jpeg" alt="Sticker 2">
+        <div class="sticker-explainer">Clocking it...as in the signal...#digital electronics.</div>
+      </div>
+      <div class="sticker-meta">
+        <span class="sticker-name">Sticker 2</span>
+        <a class="sticker-download" href="images/stickers/sticker-2.svg" download data-sticker-file aria-label="Download Sticker 2">⬇</a>
+      </div>
+    </div>
+
+    <div class="sticker tilt-b nudge-mid">
+      <div class="sticker-art">
+        <img src="images/stickers//It's not that deep.jpeg" alt="Sticker 3">
+        <div class="sticker-explainer">#Machine learning</div>
+      </div>
+      <div class="sticker-meta">
+        <span class="sticker-name">Sticker 3</span>
+        <a class="sticker-download" href="images/stickers/sticker-3.svg" download data-sticker-file aria-label="Download Sticker 3">⬇</a>
+      </div>
+    </div>
+
+    <div class="sticker tilt-e nudge-up">
+      <div class="sticker-art">
+        <img src="images/stickers/lamda.jpeg" alt="Sticker 4">
+        <div class="sticker-explainer">lambda</div>
+      </div>
+      <div class="sticker-meta">
+        <span class="sticker-name">Sticker 4</span>
+        <a class="sticker-download" href="images/stickers/sticker-4.svg" download data-sticker-file aria-label="Download Sticker 4">⬇</a>
+      </div>
+    </div>
+
+    <div class="sticker tilt-c nudge-down">
+      <div class="sticker-art">
+        <img src="images/stickers/AI Agents.jpeg" alt="Sticker 5">
+        <div class="sticker-explainer">: )</div>
+      </div>
+      <div class="sticker-meta">
+        <span class="sticker-name">Sticker 5</span>
+        <a class="sticker-download" href="images/stickers/sticker-5.svg" download data-sticker-file aria-label="Download Sticker 5">⬇</a>
+      </div>
+    </div>
+
+    <div class="sticker tilt-f nudge-mid">
+      <div class="sticker-art">
+        <img src="images/stickers/sticker-6.svg" alt="Sticker 6">
+        <div class="sticker-explainer">Say what this sticker is and why it exists.</div>
+      </div>
+      <div class="sticker-meta">
+        <span class="sticker-name">Sticker 6</span>
+        <a class="sticker-download" href="images/stickers/sticker-6.svg" download data-sticker-file aria-label="Download Sticker 6">⬇</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-cta">Let's work on something!</div>
+  <div class="footer-contact">
+    <div>
+      <p class="contact-label">Contact</p>
+      <a class="contact-email" href="mailto:rebekahmish16@gmail.com">rebekahmish16@gmail.com</a>
+    </div>
+    <div class="footer-icons">
+      <a href="https://github.com/mugenyirebekah" target="_blank" rel="noopener" aria-label="GitHub"><img src="images/icons/github.svg" alt=""></a>
+      <a href="https://www.linkedin.com/in/rebekah-mugenyi-0a7503325" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="images/icons/linkedin.svg" alt=""></a>
+      <a href="mailto:rebekahmish16@gmail.com" aria-label="Email"><img src="images/icons/email.svg" alt=""></a>
+      <a href="files/Rebekah_Mugenyi_CV_2026.pdf" target="_blank" rel="noopener" aria-label="Resume / CV"><img src="images/icons/resume.svg" alt=""></a>
+    </div>
+  </div>
+  <div class="signature">RM</div>
+</footer>
+<!-- JSZip: only needed for the "download all" button, only loaded on this page -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

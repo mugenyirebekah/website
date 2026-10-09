@@ -28,3 +28,9 @@ entry in `blog/index.html`. All blog links use normal same-tab navigation.
 3. Freezing! 🥶
 4. Blizzard ❄️
 5. Absolute Zero 🧊 
+
+### Stickerville
+
+For course related stickers - laptop
+For bookish stickers - back of a kindle
+For random stickers - random stickers
