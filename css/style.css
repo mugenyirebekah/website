@@ -1460,3 +1460,8 @@ a { color: inherit; text-decoration: none; }
   .secret-doorway:hover, .secret-doorway:focus-visible { transform: rotate(1deg) scale(.55); }
   .sf-hint { font-size: 1.5rem; }
 }
+
+/* Phone: photo is a contained square, with the headline and text below it */
+@media (max-width: 640px) {
+  .mf-portrait { position: relative !important; top: auto !important; right: auto !important; transform: none !important; width: 220px !important; height: 220px !important; margin: 0 0 20px; z-index: 0; }
+}
