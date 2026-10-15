@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ICT Manifesto — Rebekah Mugenyi</title>
+  <meta name="description" content="Rebekah Mugenyi's interactive manifesto for Minister of ICT, Honours College, Uganda Christian University.">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var theme = stored || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+
+<!-- Icon sprite: one definition per icon, reused with <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.3 5 2.6 5 5.8"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5M20 12a8 8 0 0 1-14 5.3L4 15M4 20v-5h5"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+</svg>
+
+<header class="site-header">
+  <a href="index.html" class="logo-marks" aria-label="Home">
+    <img src="images/icons/logo-mark-1.svg" alt="">
+    <img src="images/icons/logo-mark-2.svg" alt="">
+  </a>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="press.html">Press</a>
+    <a href="about.html">About</a>
+  </nav>
+  <div class="header-controls">
+    <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+    <button class="nav-toggle" aria-label="Toggle menu">≡</button>
+  </div>
+</header>
+
+<main class="wrap mf">
+
+  <!-- Intro -->
+  <section class="mf-hero" aria-labelledby="mfTitle">
+    <!-- Photo: drop your picture at images/manifesto-portrait.jpg. Until it exists, the grey placeholder shows. -->
+    <figure class="mf-portrait"><img src="images/manifesto/HC.png" alt="Rebekah Mugenyi" width="140" height="140" onerror="this.remove()"></figure>
+    <p class="code-line"><span class="tok-fn">printf</span><span class="tok-punct">(</span><span class="tok-str">"Minister of ICT, Honours College"</span><span class="tok-punct">);</span></p>
+    <h1 id="mfTitle" class="mf-title mf-redact">Not one person doing everything. A team that can.</h1>
+    <p class="mf-lead">A connected, digitally empowered and technologically organised Honours College: reliable systems, and more members equipped to run them. I'm Rebekah Mugenyi, and this is how I'd approach the role.</p>
+    <a class="mf-btn" href="#priorities">Explore the manifesto</a>
+  </section>
+
+  <!-- Five priorities -->
+  <section class="mf-section" id="priorities" aria-labelledby="mfPrioTitle">
+    <h2 id="mfPrioTitle" class="mf-h2">Five priorities. Pick one.</h2>
+    <div class="mf-clearance" aria-live="polite">
+      <span id="mfClearTxt">Clearance level: 1 of 5 priorities read</span>
+      <progress id="mfClearBar" max="5" value="1" aria-label="Priorities read"></progress>
+      <span class="mf-briefed" id="mfBriefed">FULLY BRIEFED</span>
+    </div>
+    <div class="mf-tabs" role="tablist" aria-label="Manifesto priorities">
+      <button class="mf-tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true"><svg class="mf-ico" aria-hidden="true"><use href="#i-web"/></svg>Presence</button>
+      <button class="mf-tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"><svg class="mf-ico" aria-hidden="true"><use href="#i-mic"/></svg>Events</button>
+      <button class="mf-tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1"><svg class="mf-ico" aria-hidden="true"><use href="#i-users"/></svg>Empower</button>
+      <button class="mf-tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1"><svg class="mf-ico" aria-hidden="true"><use href="#i-loop"/></svg>Continuity</button>
+      <button class="mf-tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1"><svg class="mf-ico" aria-hidden="true"><use href="#i-chat"/></svg>Community</button>
+    </div>
+
+    <div class="mf-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
+      <h3>A strong digital presence</h3>
+      <dl>
+        <dt>The goal</dt><dd>A consistent online presence that reflects who we are, what we do and the excellence we strive for.</dd>
+        <dt>In practice</dt><dd>An official Honours College website, developed and maintained as one central platform for our identity, activities, announcements, events, achievements and opportunities.</dd>
+        <dt>Why it matters</dt><dd>Members and visitors get one place to learn about the College.</dd>
+      </dl>
+    </div>
+    <div class="mf-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
+      <h3>Reliable ICT support for College activities</h3>
+      <dl>
+        <dt>The goal</dt><dd>Fewer last-minute technical problems, and events that run smoothly and professionally.</dd>
+        <dt>In practice</dt><dd>Presentations coordinated. Microphones, speakers, projectors and other equipment prepared and tested before events. The online team coordinated, with livestreaming support where needed. Clear procedures for setup, troubleshooting and handovers.</dd>
+        <dt>Why it matters</dt><dd>Speakers and audiences can focus on the event instead of the equipment.</dd>
+      </dl>
+    </div>
+    <div class="mf-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
+      <h3>Empowering members through ICT</h3>
+      <dl>
+        <dt>The goal</dt><dd>ICT should not depend on one person. The aim is not simply to do the ICT work, but to build a team that can do it well.</dd>
+        <dt>In practice</dt><dd>Practical demonstrations, shared documentation and hands-on involvement, so interested members can take ownership of presentation management, audio-visual support, livestream coordination, website updates and other digital tools.</dd>
+        <dt>Why it matters</dt><dd>More members contribute their skills, and the work doesn't stop when one person is unavailable.</dd>
+      </dl>
+    </div>
+    <div class="mf-panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" tabindex="0" hidden>
+      <h3>Systems that last beyond one term</h3>
+      <dl>
+        <dt>The goal</dt><dd>Work that does not end with my term in office.</dd>
+        <dt>In practice</dt><dd>Shared resources maintained, simple technical checklists created, recurring tasks documented, and clear responsibilities set for the ICT team.</dd>
+        <dt>Why it matters</dt><dd>The next team starts from what we built, not from zero.</dd>
+      </dl>
+    </div>
+    <div class="mf-panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" tabindex="0" hidden>
+      <h3>Technology that serves our community</h3>
+      <dl>
+        <dt>The goal</dt><dd>Better communication, accessibility and collaboration within Honours College.</dd>
+        <dt>In practice</dt><dd>Better organisation of digital resources, easier access to important information, and improved coordination among members and leadership. I will listen to the needs of the College first.</dd>
+        <dt>Why it matters</dt><dd>Solutions that are useful, sustainable and achievable.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Demo: event readiness checklist -->
+  <section class="mf-section" aria-labelledby="mfCheckTitle">
+    <h2 id="mfCheckTitle" class="mf-h2">What "ready" could look like</h2>
+    <p class="mf-note">An illustrative prototype of an event-readiness checklist, not a live system. Tick the items.</p>
+    <div class="mf-card mf-card-rel">
+      <span class="mf-approved" id="mfApproved" aria-hidden="true">APPROVED</span>
+      <ul class="mf-check" id="mfChecklist">
+        <li><label><input type="checkbox"> Presentations collected and opened on the event laptop</label></li>
+        <li><label><input type="checkbox"> Microphones tested</label></li>
+        <li><label><input type="checkbox"> Speakers sound-checked</label></li>
+        <li><label><input type="checkbox"> Projector connected and tested</label></li>
+        <li><label><input type="checkbox"> Online team and livestream ready</label></li>
+        <li><label><input type="checkbox"> Troubleshooting contact and handover notes shared</label></li>
+      </ul>
+      <progress id="mfBar" max="6" value="0" aria-label="Checklist progress"></progress>
+      <p id="mfStatus" class="mf-status" aria-live="polite">0 of 6 checks done</p>
+      <button type="button" class="mf-btn mf-btn-ghost" id="mfReset">Reset</button>
+    </div>
+  </section>
+
+  <!-- Demo: what if the tech person is away? -->
+  <section class="mf-section" aria-labelledby="mfAwayTitle">
+    <h2 id="mfAwayTitle" class="mf-h2">What if the tech person is away?</h2>
+    <p class="mf-note">An illustrative concept with made-up roles. Tap a team member to send them away, then switch documentation on.</p>
+    <div class="mf-card" id="mfAway">
+      <label class="mf-switch"><input type="checkbox" id="mfDocs"> Shared documentation &amp; checklists</label>
+      <div class="mf-members">
+        <button type="button" class="mf-member" aria-pressed="false"><svg class="mf-ico" aria-hidden="true"><use href="#i-users"/></svg><strong>Member A</strong><span>Slides</span><em class="mf-task-state">On track</em></button>
+        <button type="button" class="mf-member" aria-pressed="false"><svg class="mf-ico" aria-hidden="true"><use href="#i-mic"/></svg><strong>Member B</strong><span>Sound</span><em class="mf-task-state">On track</em></button>
+        <button type="button" class="mf-member" aria-pressed="false"><svg class="mf-ico" aria-hidden="true"><use href="#i-web"/></svg><strong>Member C</strong><span>Livestream</span><em class="mf-task-state">On track</em></button>
+      </div>
+      <p id="mfAwayMsg" class="mf-status" aria-live="polite">Everyone is here. Tap a member to send them away.</p>
+    </div>
+  </section>
+
+  <!-- Demo: how the priorities connect -->
+  <section class="mf-section" aria-labelledby="mfLinkTitle">
+    <h2 id="mfLinkTitle" class="mf-h2">How the priorities support each other</h2>
+    <p class="mf-note">Select a priority to see what it connects to.</p>
+    <div class="mf-nodes">
+      <button type="button" class="mf-node" aria-pressed="false" data-id="1" data-links="2,5" data-note="The website gives events, announcements and opportunities a central home. That makes information easier for everyone to reach (Community) and gives event plans a place to be seen (Events)."><svg class="mf-ico" aria-hidden="true"><use href="#i-web"/></svg>Presence</button>
+      <button type="button" class="mf-node" aria-pressed="false" data-id="2" data-links="3,4" data-note="Events are where a trained team (Empower) puts its practice to work, and where written procedures (Continuity) prove themselves."><svg class="mf-ico" aria-hidden="true"><use href="#i-mic"/></svg>Events</button>
+      <button type="button" class="mf-node" aria-pressed="false" data-id="3" data-links="2,4" data-note="More trained members means events don't hinge on one person (Events), and the work is easier to hand on (Continuity)."><svg class="mf-ico" aria-hidden="true"><use href="#i-users"/></svg>Empower</button>
+      <button type="button" class="mf-node" aria-pressed="false" data-id="4" data-links="1,3" data-note="Checklists and documented tasks help keep the website current (Presence) and let the team take over from one another (Empower)."><svg class="mf-ico" aria-hidden="true"><use href="#i-loop"/></svg>Continuity</button>
+      <button type="button" class="mf-node" aria-pressed="false" data-id="5" data-links="1,3" data-note="Listening to what the College needs guides what the website shows (Presence) and which skills the team builds (Empower)."><svg class="mf-ico" aria-hidden="true"><use href="#i-chat"/></svg>Community</button>
+    </div>
+    <p id="mfNote" class="mf-card mf-linknote" aria-live="polite">Everything here feeds the others. Start with any one.</p>
+  </section>
+
+  <!-- Commitment -->
+  <section class="mf-section mf-end" aria-labelledby="mfCommit">
+    <h2 id="mfCommit" class="mf-h2">My commitment</h2>
+    <p>I commit to being proactive, organised, willing to learn and accountable as Minister of ICT, working with College leadership and members to identify needs, implement practical solutions and build a culture where technology is a shared responsibility.</p>
+    <p>I may not have every solution at the beginning, but I am committed to finding them, learning what is necessary and building systems that work.</p>
+    <p class="mf-quote">From depending on individual effort to building reliable systems. From having technical problems to preparing for them. From simply using technology to empowering others through it.</p>
+    <p><strong>Rebekah Mugenyi</strong><br>Candidate for Minister of ICT, Honours College</p>
+    <p><a class="back-link" href="sidequests.html">&larr;&#xFE0E; Back to Sidequests</a></p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-cta">Let's work on something!</div>
+  <div class="footer-contact">
+    <div>
+      <p class="contact-label">Contact</p>
+      <a class="contact-email" href="mailto:rebekahmish16@gmail.com">rebekahmish16@gmail.com</a>
+    </div>
+    <div class="footer-icons">
+      <a href="https://github.com/mugenyirebekah" target="_blank" rel="noopener" aria-label="GitHub"><img src="images/icons/github.svg" alt=""></a>
+      <a href="https://www.linkedin.com/in/rebekah-mugenyi-0a7503325" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="images/icons/linkedin.svg" alt=""></a>
+      <a href="mailto:rebekahmish16@gmail.com" aria-label="Email"><img src="images/icons/email.svg" alt=""></a>
+      <a href="files/Rebekah_Mugenyi_CV_2026.pdf" target="_blank" rel="noopener" aria-label="Resume / CV"><img src="images/icons/resume.svg" alt=""></a>
+    </div>
+  </div>
+  <div class="signature">RM</div>
+</footer>
+
+<!-- Suggestions / Comments -->
+<div class="mf-suggest" id="mfSuggest">
+  <div class="mf-suggest-panel" id="mfSuggestPanel">
+    <p class="mf-suggest-title">Got an idea for Honours College ICT?</p>
+    <a class="mf-suggest-link" href="mailto:rebekahsystems@gmail.com?subject=Honours%20College%20ICT%20%E2%80%94%20Suggestions%20%26%20Feedback&amp;body=Hi%20Rebekah%2C%0A%0AI%27d%20like%20to%20share%20a%20suggestion%20or%20comment%20about%20your%20ICT%20manifesto%3A%0A%0A">Open in my email app</a>
+    <a class="mf-suggest-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=rebekahsystems%40gmail.com&amp;su=Honours%20College%20ICT%20%E2%80%94%20Suggestions%20%26%20Feedback&amp;body=Hi%20Rebekah%2C%0A%0AI%27d%20like%20to%20share%20a%20suggestion%20or%20comment%20about%20your%20ICT%20manifesto%3A%0A%0A" target="_blank" rel="noopener">Open in Gmail</a>
+  </div>
+  <button type="button" class="mf-suggest-btn" id="mfSuggestBtn" aria-expanded="false" aria-controls="mfSuggestPanel">
+    <svg class="mf-ico" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 4h18v13H10l-5 4v-4H3z"/>
+      <path d="M7 9l3 2-3 2"/>
+      <path class="mf-cursor" d="M12.5 13.5h4"/>
+    </svg>
+    <span>Suggestions / Comments</span>
+  </button>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
