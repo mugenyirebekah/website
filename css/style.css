@@ -1453,3 +1453,10 @@ a { color: inherit; text-decoration: none; }
   .mf-portrait { width: 260px; height: 260px; right: 48px; }
   .mf-hero > *:not(.mf-portrait) { max-width: calc(100% - 320px); }
 }
+
+/* Phone: smaller TOP SECRET folder, top-right corner, clear of the hazard tape */
+@media (max-width: 640px) {
+  .secret-doorway { position: absolute; top: 70px; right: 8px; margin: 0; transform: rotate(4deg) scale(.55); transform-origin: top right; }
+  .secret-doorway:hover, .secret-doorway:focus-visible { transform: rotate(1deg) scale(.55); }
+  .sf-hint { font-size: 1.5rem; }
+}
