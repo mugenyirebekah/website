@@ -1443,3 +1443,13 @@ a { color: inherit; text-decoration: none; }
   .mf-cursor { animation: none; }
   .mf-suggest-btn { transition: none; }
 }
+
+/* Manifesto photo: larger and pulled in from the edge on desktop */
+@media (min-width: 641px) {
+  .mf-portrait { width: 200px; height: 200px; right: 24px; top: 50%; transform: translateY(-50%); }
+  .mf-hero > *:not(.mf-portrait) { max-width: calc(100% - 240px); }
+}
+@media (min-width: 1000px) {
+  .mf-portrait { width: 260px; height: 260px; right: 48px; }
+  .mf-hero > *:not(.mf-portrait) { max-width: calc(100% - 320px); }
+}
