@@ -1392,7 +1392,7 @@ a { color: inherit; text-decoration: none; }
 /* ---------- Manifesto extras: photo, declassify, clearance, stamps, away demo ---------- */
 .mf-hero { position: relative; }
 .mf-portrait { position: absolute; top: 24px; right: 0; width: 140px; height: 140px; margin: 0; border: 1.5px solid var(--line); border-radius: 16px; background: var(--mf-tint); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.mf-portrait::before { content: "Your photo here"; padding: 8px; text-align: center; font-family: var(--font-code); font-size: .8rem; color: var(--ink-soft); }
+.mf-portrait::before { content: "Rebekah Mugenyi"; padding: 8px; text-align: center; font-family: var(--font-code); font-size: .8rem; color: var(--ink-soft); }
 .mf-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 @media (min-width: 641px) { .mf-hero > *:not(.mf-portrait) { max-width: calc(100% - 170px); } }
 @media (max-width: 640px) { .mf-portrait { position: static; width: 110px; height: 110px; margin-bottom: 16px; } }
@@ -1465,3 +1465,13 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 640px) {
   .mf-portrait { position: relative !important; top: auto !important; right: auto !important; transform: none !important; width: 220px !important; height: 220px !important; margin: 0 0 20px; z-index: 0; }
 }
+
+
+
+/* Commitment section: let the text use the full page width */
+.mf-end p { max-width: none; }
+.mf-quote { max-width: none; }
+
+/* Commitment section: justified text */
+.mf-end p { text-align: justify; hyphens: auto; }
+.mf-end p:last-of-type { text-align: left; }
